@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from "@material-tailwind/react";
 import Navbar from './components/Navbar';
 import { Element } from 'react-scroll';
@@ -18,24 +18,33 @@ function App() {
         <Navbar />
         <br />
         <Suspense fallback={<div>Loading...</div>}>
-          <Element name="mhero">
-            <Mhero />
-          </Element>
-          <br />
-          <Element name="imgGallery">
-            <ImgGallery />
-          </Element>
-          <br />
-          <Element name="amenities">
-            <Amenities />
-          </Element>
-          <br />
-          <Element name="aboutUs">
-            <AboutUs />
-          </Element>
-          <Element name="Footer">
-          <Footer />
-          </Element>
+          <Switch>
+            <Route exact path="/vite-project/">
+              <Element name="mhero">
+                <Mhero />
+              </Element>
+            </Route>
+            <Route path="/vite-project/imgGallery">
+              <Element name="imgGallery">
+                <ImgGallery />
+              </Element>
+            </Route>
+            <Route path="/vite-project/amenities">
+              <Element name="amenities">
+                <Amenities />
+              </Element>
+            </Route>
+            <Route path="/vite-project/aboutUs">
+              <Element name="aboutUs">
+                <AboutUs />
+              </Element>
+            </Route>
+            <Route path="/vite-project/footer">
+              <Element name="Footer">
+                <Footer />
+              </Element>
+            </Route>
+          </Switch>
         </Suspense>
       </ThemeProvider>
     </Router>
