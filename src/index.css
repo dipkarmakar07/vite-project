@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.loading-placeholder {
+    animation: loading-animation 1s infinite linear;
+  }
+  
+  @keyframes loading-animation {
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
+  
